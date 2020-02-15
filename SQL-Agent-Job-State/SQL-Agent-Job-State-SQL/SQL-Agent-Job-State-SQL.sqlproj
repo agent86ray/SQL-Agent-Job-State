@@ -63,6 +63,7 @@
   <ItemGroup>
     <Build Include="Stored Procedures\start_job.sql" />
     <Build Include="Tables\job_state.sql" />
+    <Build Include="Stored Procedures\initialize_job_state.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="job_control_dev.publish.xml" />
