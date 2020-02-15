@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQL-Agent-Job-State-SQL", "SQL-Agent-Job-State-SQL\SQL-Agent-Job-State-SQL.sqlproj", "{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SQL-Agent-Job-State-SSIS", "SQL-Agent-Job-State-SSIS\SQL-Agent-Job-State-SSIS.dtproj", "{D37BFF1E-705C-40E9-A410-B4A2B120E296}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB4E0C2-1831-48B4-ADF7-E0D93AA925EA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D37BFF1E-705C-40E9-A410-B4A2B120E296}.Debug|Any CPU.ActiveCfg = Development
+		{D37BFF1E-705C-40E9-A410-B4A2B120E296}.Debug|Any CPU.Build.0 = Development
+		{D37BFF1E-705C-40E9-A410-B4A2B120E296}.Development|Any CPU.ActiveCfg = Development
+		{D37BFF1E-705C-40E9-A410-B4A2B120E296}.Development|Any CPU.Build.0 = Development
+		{D37BFF1E-705C-40E9-A410-B4A2B120E296}.Release|Any CPU.ActiveCfg = Development
+		{D37BFF1E-705C-40E9-A410-B4A2B120E296}.Release|Any CPU.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41D02F86-B4CE-446B-8BBD-4719468EA26E}
+	EndGlobalSection
+EndGlobal
