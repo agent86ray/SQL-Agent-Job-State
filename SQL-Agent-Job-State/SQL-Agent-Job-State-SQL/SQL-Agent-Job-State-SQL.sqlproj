@@ -58,9 +58,11 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Stored Procedures" />
+    <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Stored Procedures\start_job.sql" />
+    <Build Include="Tables\job_state.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="job_control_dev.publish.xml" />
