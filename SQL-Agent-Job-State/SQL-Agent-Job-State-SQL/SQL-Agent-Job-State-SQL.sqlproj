@@ -59,6 +59,7 @@
     <Folder Include="Properties" />
     <Folder Include="Stored Procedures" />
     <Folder Include="Tables" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Stored Procedures\start_job.sql" />
@@ -67,5 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="job_control_dev.publish.xml" />
+    <None Include="Scripts\initialize_job_state_test.sql" />
   </ItemGroup>
 </Project>
