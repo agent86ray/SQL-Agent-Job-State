@@ -1,11 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[parse_sql_agent_jobid_token]
-	@sql_agent_jobid_token	NVARCHAR(50)
+	@p_sql_agent_jobid_token	NVARCHAR(50)
 AS
 BEGIN
 	DECLARE 
 		@sql	NVARCHAR(100) = CONCAT(
 					'SELECT @job_id_out = CONVERT(UNIQUEIDENTIFIER, '
-				,	@sql_agent_jobid_token
+				,	@p_sql_agent_jobid_token
 				,	N')')
 	,	@job_id UNIQUEIDENTIFIER;
 
