@@ -6,4 +6,5 @@
 ,	[state]			NVARCHAR(4000)		NULL
 ,	CONSTRAINT pkc_job_state PRIMARY KEY CLUSTERED
 		([job_id], [server_name])
+,	[last_modified] DATETIME			NOT NULL
 )
