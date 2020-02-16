@@ -72,5 +72,6 @@
   <ItemGroup>
     <None Include="job_control_dev.publish.xml" />
     <None Include="Scripts\initialize_job_state_test.sql" />
+    <None Include="Scripts\sql_agent_tokens.sql" />
   </ItemGroup>
 </Project>
