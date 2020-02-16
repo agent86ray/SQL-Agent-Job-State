@@ -66,14 +66,17 @@
     <Build Include="Tables\job_state.sql" />
     <Build Include="Stored Procedures\initialize_job_state.sql" />
     <Build Include="Tables\sql_agent_token_value.sql" />
-    <Build Include="Stored Procedures\update_job_state.sql" />
+    <Build Include="Stored Procedures\update_job_state_bj_job_id.sql" />
     <Build Include="Stored Procedures\parse_sql_agent_jobid_token.sql" />
     <Build Include="Stored Procedures\convert_sql_agent_jobid_token.sql" />
+    <Build Include="Stored Procedures\retrieve_job_state.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="job_control_dev.publish.xml" />
     <None Include="Scripts\initialize_job_state_test.sql" />
     <None Include="Scripts\sql_agent_tokens.sql" />
     <None Include="Scripts\T-SQL test parse_sql_agent-jobid_token.sql" />
+    <None Include="Scripts\INITIALIZE_NEW_JOB_STATE.sql" />
+    <None Include="Scripts\CREATE_JOB_STATE.sql" />
   </ItemGroup>
 </Project>
