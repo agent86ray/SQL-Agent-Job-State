@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="initialize_job_state"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{B67000C8-C615-459B-A4C2-895DB221BE42}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{26AF3EA5-086F-423E-A67C-B73967B424E4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -77,7 +77,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AD82BF28-31B7-46EC-BF55-1D06B9138790}"
-          SQLTask:SqlStatementSource="&#xA;EXEC [dbo].[update_job_state]&#xA;  @p_job_id = ?&#xA;, @p_state = N'{&quot;record_count&quot;:0}';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="&#xA;EXEC [dbo].[update_job_state_by_job_id]&#xA;  @p_job_id = ?&#xA;, @p_state = N'{&quot;record_count&quot;:0}';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::job_id"
