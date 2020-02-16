@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-CH7B7GJ"
   DTS:CreatorName="DESKTOP-CH7B7GJ\raymo"
-  DTS:DTSID="{FAFE5644-56AF-4737-A403-EA29EE722CEA}"
+  DTS:DTSID="{A0B19DB7-28F3-4091-B3BB-2A1F814F6BCD}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.0900.40"
   DTS:LocaleID="1033"
-  DTS:ObjectName="initialize_job_state_test"
+  DTS:ObjectName="initialize_job_state"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{E24260A2-79CF-4424-AE59-92A076B0600D}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{B67000C8-C615-459B-A4C2-895DB221BE42}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -111,13 +111,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="165.5,42"
-          Id="Package\Initialize Job State"
-          TopLeft="59.75,99.75" />
-        <NodeLayout
           Size="213,42"
           Id="Package\Get SQL Agent JOBID Token"
           TopLeft="43,26.25" />
+        <NodeLayout
+          Size="165.5,42"
+          Id="Package\Initialize Job State"
+          TopLeft="59.75,99.75" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="146,68.25">

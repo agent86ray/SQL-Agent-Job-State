@@ -26,12 +26,13 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-CH7B7GJ</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2YmPJjB6906qhnAuMqKZPwAAAAACAAAAAAAQZgAAAAEAACAAAAC4D5c/UBuw7+d9ikqzEhFJqq/Q9SbtvyI0JACvYxTFOgAAAAAOgAAAAAIAACAAAABgEAkw6gUuzhuczqRBbmRGnJzTR8BhL4R2ndinyomaV5AAAACcPA+hBxUNHKDrmvQYvLpBqs+Wl9SoNip5qmlncRDd9FA9IUbkfufJSpuXMq4kVmbcIVw6XuV4U6RP+CtSJAuPHjb64VpbhJcJ5aBDSVomlKELBz03uWBCeL0OruMcGujv9S2oU47nvO3pZ4OZthlE08+aPBsIHoytqfPXTvs2VQERJt3f25SsVGGkJCbZSFVAAAAANMa3yUawC4xWh8HGhfQ/tH3tQdOlfmRutuzMW0wWIn+3dAGZAT8AuddVwKhLgrlp+Aatwq7NwtW+9nKfrWxtDw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2YmPJjB6906qhnAuMqKZPwAAAAACAAAAAAAQZgAAAAEAACAAAAA3khRDgx+EOySg3XOJnffUF9Gde980RGJ0/+wRlVlzBQAAAAAOgAAAAAIAACAAAADxEB9W338NwP4eZHIThiaYKnmgf/oTbojA+pQuB4/rI5AAAAClvLdZVWfWbXaaetSsbRZMCZrPaYJ1W5smCAPOttza4YKfDsCUgAQ1hMk3eWmH0MS0AWcgmR2r++j3F2tIau417TNxGBz9RzjPKgoCMCQ3WlzfK6I5dcgIAK+78v98r9xJOIwlZ8aBAPp+eTXt/ZvTiOEHlCD0MDB/FlOyLT+sLiXFXPKmNTYDBXTqGeHlUtBAAAAAFtNNXXJ43wZ38hp1zP4aaMqyt0oVxa6wvvBBVorHOle77g/kW4lYlXdeh0/jBf1V/bZIoCCOyNzAg8p6JH0T5g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="initialize_job_state_test.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="get_sql_agent_jobid_token.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="begin_job.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="initialize_job_state.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="job_control.conmgr" />
@@ -128,23 +129,6 @@
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="initialize_job_state_test.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{FAFE5644-56AF-4737-A403-EA29EE722CEA}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">initialize_job_state_test</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">11</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E24260A2-79CF-4424-AE59-92A076B0600D}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="get_sql_agent_jobid_token.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{9BDF0AFB-0515-44DA-BC69-5B959AEBF162}</SSIS:Property>
@@ -155,6 +139,40 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{B0CDAAF0-E3D0-45E5-A220-DFE38F5ECECA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="begin_job.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{E156DD92-801C-4047-AB3F-1713DDA6563D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">begin_job</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{A03D6B01-21F6-4010-8620-F6753C5DD105}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="initialize_job_state.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{A0B19DB7-28F3-4091-B3BB-2A1F814F6BCD}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">initialize_job_state</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">12</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B67000C8-C615-459B-A4C2-895DB221BE42}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
