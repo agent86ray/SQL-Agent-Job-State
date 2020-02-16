@@ -66,7 +66,7 @@
     <Build Include="Tables\job_state.sql" />
     <Build Include="Stored Procedures\initialize_job_state.sql" />
     <Build Include="Tables\sql_agent_token_value.sql" />
-    <Build Include="Stored Procedures\update_job_state_bj_job_id.sql" />
+    <Build Include="Stored Procedures\update_job_state.sql" />
     <Build Include="Stored Procedures\parse_sql_agent_jobid_token.sql" />
     <Build Include="Stored Procedures\convert_sql_agent_jobid_token.sql" />
     <Build Include="Stored Procedures\retrieve_job_state.sql" />
