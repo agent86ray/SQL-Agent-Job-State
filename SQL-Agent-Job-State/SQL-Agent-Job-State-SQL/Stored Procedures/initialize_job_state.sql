@@ -4,8 +4,9 @@
 AS
 BEGIN
 	DECLARE 
-		@job_id		UNIQUEIDENTIFIER = TRY_CONVERT(UNIQUEIDENTIFIER, @p_job_id)
-	,	@error_msg	NVARCHAR(MAX);
+		@job_id			UNIQUEIDENTIFIER = TRY_CONVERT(UNIQUEIDENTIFIER, @p_job_id)
+	,	@error_msg		NVARCHAR(MAX)
+	,	@last_modified	DATETIME = GETDATE();
 
 	IF @job_id IS NULL
 	BEGIN
@@ -17,7 +18,9 @@ BEGIN
 	END
 
 	UPDATE [dbo].[job_state]
-	SET [state] = @p_state
+	SET 
+		[state] = @p_state
+	,	[last_modified] = @last_modified
 	WHERE job_id = @job_id
 	AND [server_name] = @@SERVERNAME;
 
@@ -27,11 +30,13 @@ BEGIN
 			[job_id]
 		,	[server_name]
 		,	[state]
+		,	[last_modified]
 		)
 		VALUES (
 			@job_id
 		,	@@SERVERNAME
 		,	@p_state
+		,	@last_modified
 		)
 	END
 END

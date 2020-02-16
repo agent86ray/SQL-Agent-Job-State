@@ -65,6 +65,9 @@
     <Build Include="Stored Procedures\start_job.sql" />
     <Build Include="Tables\job_state.sql" />
     <Build Include="Stored Procedures\initialize_job_state.sql" />
+    <Build Include="Tables\sql_agent_token_value.sql" />
+    <Build Include="Stored Procedures\update_job_state.sql" />
+    <Build Include="Stored Procedures\parse_sql_agent_jobid_token.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="job_control_dev.publish.xml" />
