@@ -11,12 +11,36 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="INITIALIZE_JOB_STATE"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{E121B590-ADC8-41D4-9C1F-D2B119697EBA}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{1CC295E5-7AF6-4403-9963-854FF1FF8C9C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\INITIALIZE STATE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{17FDE4ED-4376-4BBF-8674-AD3BFD7ABC00}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="INITIALIZE STATE"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2642642C-D30C-4038-8896-DAC8161A4528}"
+          SQLTask:SqlStatementSource="DECLARE @P_CUSTOM_STATE NVARCHAR(4000) = N'{ &quot;start_job_instance_id&quot; : 0 , &quot;end_job_instance_id&quot; : 0 }';&#xA;EXEC [dbo].[INITIALIZE_STATE] &#xA;&#x9;@STATE_ID = ?&#xA;,&#x9;@CUSTOM_STATE = @P_CUSTOM_STATE;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::JOB_STATE_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -24,5 +48,17 @@
 <Objects
   Version="8">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\INITIALIZE STATE"
+          TopLeft="101.25,31.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
