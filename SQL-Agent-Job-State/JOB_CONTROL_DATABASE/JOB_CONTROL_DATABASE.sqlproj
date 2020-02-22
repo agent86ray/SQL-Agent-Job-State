@@ -68,5 +68,6 @@
     <Build Include="Stored Procedures\UPDATE_STATE.sql" />
     <Build Include="Stored Procedures\RETRIEVE_STATE.sql" />
     <Build Include="Stored Procedures\CREATE_STATE.sql" />
+    <Build Include="Stored Procedures\GET_STATE.sql" />
   </ItemGroup>
 </Project>
