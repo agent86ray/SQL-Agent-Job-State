@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>JOB_CONTROL_DATABASE</Name>
+    <Name>JOB_DW_DATABASE</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{152975e4-b5a9-4e83-a4ff-ec2e9c22437a}</ProjectGuid>
+    <ProjectGuid>{6b1f92bf-d161-4ade-a0c2-15b6a2a4b459}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>JOB_CONTROL_DATABASE</RootNamespace>
-    <AssemblyName>JOB_CONTROL_DATABASE</AssemblyName>
+    <RootNamespace>JOB_DW_DATABASE</RootNamespace>
+    <AssemblyName>JOB_DW_DATABASE</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -58,15 +58,12 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
-    <Folder Include="Miscellaneous" />
-    <Folder Include="Stored Procedures" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\STATE.sql" />
-    <Build Include="Miscellaneous\STATE_ID_SEQUENCE.sql" />
-    <Build Include="Stored Procedures\INITIALIZE_STATE.sql" />
-    <Build Include="Stored Procedures\UPDATE_STATE.sql" />
-    <Build Include="Stored Procedures\RETRIEVE_STATE.sql" />
-    <Build Include="Stored Procedures\CREATE_STATE.sql" />
+    <Build Include="Tables\JOB_HISTORY_STAGING.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\CREATE_STATE_SAMPLES.sql" />
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 	This procedure should be called as the first step in a SQL Agent job.
 	The purpose is to set the CUSTOM_STATE based on the needs of the job
-	and overwrite any statethat exists from a previous execution of the 
+	and overwrite any state that exists from a previous execution of the 
 	SQL Agent job.
 
 */

@@ -1,0 +1,16 @@
+﻿CREATE PROCEDURE [dbo].[CREATE_STATE]
+	@NAME	NVARCHAR(50)
+AS
+BEGIN
+	INSERT [dbo].[STATE] (
+		[NAME]
+	)
+	VALUES (
+		@NAME
+	);
+
+	SELECT 
+		*
+	FROM [dbo].[STATE]
+	ORDER BY [STATE_ID] DESC;
+END
