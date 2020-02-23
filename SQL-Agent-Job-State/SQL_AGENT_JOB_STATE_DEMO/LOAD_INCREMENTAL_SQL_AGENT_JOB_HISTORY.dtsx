@@ -1,0 +1,784 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/23/2020 8:16:21 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-CH7B7GJ"
+  DTS:CreatorName="DESKTOP-CH7B7GJ\raymo"
+  DTS:DTSID="{93E3507C-8AD8-4439-85FA-23F5A4C2BB13}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_INCREMENTAL_SQL_AGENT_JOB_HISTORY"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{96B9FBA6-715A-4DEA-804C-FB67374B7A3D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LOAD JOB HISTORY FROM STAGING"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BC0406DD-B32B-4BDB-B5E2-2B18021F9A4A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LOAD JOB HISTORY FROM STAGING"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="JOB HISTORY"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[JOB_HISTORY]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Connections[OleDbConnection]"
+                  connectionManagerID="{10D29FA2-A37B-47AF-9D6F-7D57254EC5C1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[job_dw]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[instance_id]"
+                      cachedDataType="i4"
+                      cachedName="instance_id"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[instance_id]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[instance_id]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[job_id]"
+                      cachedDataType="guid"
+                      cachedName="job_id"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[job_id]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[job_id]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[step_id]"
+                      cachedDataType="i4"
+                      cachedName="step_id"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[step_id]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[step_id]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[step_name]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="step_name"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[step_name]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[step_name]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[sql_message_id]"
+                      cachedDataType="i4"
+                      cachedName="sql_message_id"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[sql_message_id]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[sql_message_id]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[sql_severity]"
+                      cachedDataType="i4"
+                      cachedName="sql_severity"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[sql_severity]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[sql_severity]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[message]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="message"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[message]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[message]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[run_status]"
+                      cachedDataType="i4"
+                      cachedName="run_status"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[run_status]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_status]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[run_date]"
+                      cachedDataType="i4"
+                      cachedName="run_date"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[run_date]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_date]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[run_time]"
+                      cachedDataType="i4"
+                      cachedName="run_time"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[run_time]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_time]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[run_duration]"
+                      cachedDataType="i4"
+                      cachedName="run_duration"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[run_duration]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_duration]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[operator_id_emailed]"
+                      cachedDataType="i4"
+                      cachedName="operator_id_emailed"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[operator_id_emailed]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_emailed]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[operator_id_netsent]"
+                      cachedDataType="i4"
+                      cachedName="operator_id_netsent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[operator_id_netsent]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_netsent]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[operator_id_paged]"
+                      cachedDataType="i4"
+                      cachedName="operator_id_paged"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[operator_id_paged]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_paged]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[retries_attempted]"
+                      cachedDataType="i4"
+                      cachedName="retries_attempted"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[retries_attempted]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[retries_attempted]" />
+                    <inputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].Columns[server]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="server"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[server]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[server]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[instance_id]"
+                      dataType="i4"
+                      name="instance_id" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[job_id]"
+                      dataType="guid"
+                      name="job_id" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[step_id]"
+                      dataType="i4"
+                      name="step_id" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[step_name]"
+                      dataType="wstr"
+                      length="128"
+                      name="step_name" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[sql_message_id]"
+                      dataType="i4"
+                      name="sql_message_id" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[sql_severity]"
+                      dataType="i4"
+                      name="sql_severity" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[message]"
+                      dataType="wstr"
+                      length="4000"
+                      name="message" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[run_status]"
+                      dataType="i4"
+                      name="run_status" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[run_date]"
+                      dataType="i4"
+                      name="run_date" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[run_time]"
+                      dataType="i4"
+                      name="run_time" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[run_duration]"
+                      dataType="i4"
+                      name="run_duration" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[operator_id_emailed]"
+                      dataType="i4"
+                      name="operator_id_emailed" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[operator_id_netsent]"
+                      dataType="i4"
+                      name="operator_id_netsent" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[operator_id_paged]"
+                      dataType="i4"
+                      name="operator_id_paged" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[retries_attempted]"
+                      dataType="i4"
+                      name="retries_attempted" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input].ExternalColumns[server]"
+                      dataType="wstr"
+                      length="128"
+                      name="server" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="JOB HISTORY STAGING"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[JOB_HISTORY_STAGING]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC [dbo].[GET_ROWS_TO_LOAD_FROM_STAGING]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Connections[OleDbConnection]"
+                  connectionManagerID="{10D29FA2-A37B-47AF-9D6F-7D57254EC5C1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[job_dw]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[instance_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[instance_id]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[instance_id]"
+                      name="instance_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[job_id]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[job_id]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[job_id]"
+                      name="job_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[step_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[step_id]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[step_id]"
+                      name="step_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[step_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[step_name]"
+                      length="128"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[step_name]"
+                      name="step_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[sql_message_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[sql_message_id]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[sql_message_id]"
+                      name="sql_message_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[sql_severity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[sql_severity]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[sql_severity]"
+                      name="sql_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[message]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[message]"
+                      length="4000"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[message]"
+                      name="message"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_status]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[run_status]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_status]"
+                      name="run_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[run_date]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_date]"
+                      name="run_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_time]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[run_time]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_time]"
+                      name="run_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_duration]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[run_duration]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[run_duration]"
+                      name="run_duration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_emailed]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[operator_id_emailed]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_emailed]"
+                      name="operator_id_emailed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_netsent]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[operator_id_netsent]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_netsent]"
+                      name="operator_id_netsent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_paged]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[operator_id_paged]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[operator_id_paged]"
+                      name="operator_id_paged"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[retries_attempted]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[retries_attempted]"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[retries_attempted]"
+                      name="retries_attempted"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[server]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[server]"
+                      length="128"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].Columns[server]"
+                      name="server"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[instance_id]"
+                      dataType="i4"
+                      name="instance_id" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[job_id]"
+                      dataType="guid"
+                      name="job_id" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[step_id]"
+                      dataType="i4"
+                      name="step_id" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[step_name]"
+                      dataType="wstr"
+                      length="128"
+                      name="step_name" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[sql_message_id]"
+                      dataType="i4"
+                      name="sql_message_id" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[sql_severity]"
+                      dataType="i4"
+                      name="sql_severity" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[message]"
+                      dataType="wstr"
+                      length="4000"
+                      name="message" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[run_status]"
+                      dataType="i4"
+                      name="run_status" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[run_date]"
+                      dataType="i4"
+                      name="run_date" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[run_time]"
+                      dataType="i4"
+                      name="run_time" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[run_duration]"
+                      dataType="i4"
+                      name="run_duration" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[operator_id_emailed]"
+                      dataType="i4"
+                      name="operator_id_emailed" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[operator_id_netsent]"
+                      dataType="i4"
+                      name="operator_id_netsent" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[operator_id_paged]"
+                      dataType="i4"
+                      name="operator_id_paged" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[retries_attempted]"
+                      dataType="i4"
+                      name="retries_attempted" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output].ExternalColumns[server]"
+                      dataType="wstr"
+                      length="128"
+                      name="server" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[instance_id]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[instance_id]"
+                      name="instance_id" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[job_id]"
+                      dataType="guid"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[job_id]"
+                      name="job_id" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[step_id]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[step_id]"
+                      name="step_id" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[step_name]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[step_name]"
+                      name="step_name" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[sql_message_id]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[sql_message_id]"
+                      name="sql_message_id" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[sql_severity]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[sql_severity]"
+                      name="sql_severity" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[message]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[message]"
+                      name="message" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[run_status]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[run_status]"
+                      name="run_status" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[run_date]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[run_date]"
+                      name="run_date" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[run_time]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[run_time]"
+                      name="run_time" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[run_duration]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[run_duration]"
+                      name="run_duration" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[operator_id_emailed]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[operator_id_emailed]"
+                      name="operator_id_emailed" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[operator_id_netsent]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[operator_id_netsent]"
+                      name="operator_id_netsent" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[operator_id_paged]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[operator_id_paged]"
+                      name="operator_id_paged" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[retries_attempted]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[retries_attempted]"
+                      name="retries_attempted" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[server]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[server]"
+                      name="server" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LOAD JOB HISTORY FROM STAGING.Paths[OLE DB Source Output]"
+              endId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="252.5,42"
+          Id="Package\LOAD JOB HISTORY FROM STAGING"
+          TopLeft="101,70.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LOAD JOB HISTORY FROM STAGING">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191.5,42"
+          Id="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING"
+          TopLeft="131.75,36.5" />
+        <NodeLayout
+          Size="144.5,42"
+          Id="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY"
+          TopLeft="153,129.5" />
+        <EdgeLayout
+          Id="Package\LOAD JOB HISTORY FROM STAGING.Paths[OLE DB Source Output]"
+          TopLeft="226.375,78.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

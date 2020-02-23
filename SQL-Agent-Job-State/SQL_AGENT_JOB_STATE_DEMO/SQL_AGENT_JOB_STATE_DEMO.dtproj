@@ -26,12 +26,13 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-CH7B7GJ</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2YmPJjB6906qhnAuMqKZPwAAAAACAAAAAAAQZgAAAAEAACAAAAAu76ad1+Lbkz3yxEtq51LAFE/H7dMsjNPEYPjlhbbNEwAAAAAOgAAAAAIAACAAAAD83PfvC/G6YKRnJVNGyOlsRGh1nMX/3SPAhHO0bZMRBpAAAAAgkoQ6uNw8Fk8J681N8JzT5GItNFkxj1Mr6+wHN5siTnQAApnpOk/UMBS/AN40nsyrVu1bOBz6sjPVMAwOxfUggdj7Ob8KbbEbAm1QbQbKtNghLyJQcbiO6nDHknSi42GYmIj1EdhAfQMOtaUebUnzId/jXtMMDfJ+Dj8U865+eswH/PYm+R5qMVB3ACKY2SxAAAAAixiWvNij+6Qhy9l7pweXGo0VwPqzCBl1VqIwkh8XPUXDJ/vvUFR+tZN+BIkk1gpJW16T8zayo+peq/xpzE6B0Q==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2YmPJjB6906qhnAuMqKZPwAAAAACAAAAAAAQZgAAAAEAACAAAAD6C0NYNPFDa6eMC75KoFeS/elKqrnzjRt4G7Pi0dIi9wAAAAAOgAAAAAIAACAAAAD1VzwiW+NQfqQiYf+IYmJgN/3+Y9FSRI1vGOlIImmQ35AAAAA8HPCD7s1n0s39xeOnR1U+EO7MTZUBsfikUm3WdqmoyFBucLytts35j23oGPJNUJxiVoGWvL3D3ZXszn57NSmXyo0McU1uxFDp8/5SStYzVsYogVTZSHfb9znxZfVMmwctENGZ+Wl0gqY35LpB5x9Schlm4IWbr9d5C44UgCIv4C8lDYmMAGJC1T5a2VWwSdNAAAAAN29eCDULo33Se4FBz0cyfeKxFFd8/Mv6Nax0rvo0Ub1QsSshQR1vXfkEZtzyqZqrtzAeFyuIu5qRgHED+yADug==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="INITIALIZE_JOB_STATE.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="STAGE_INCREMENTAL_SQL_AGENT_JOB_HISTORY.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_INCREMENTAL_SQL_AGENT_JOB_HISTORY.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="job_control.conmgr" />
@@ -312,10 +313,10 @@
                 <SSIS:Property SSIS:Name="Name">INITIALIZE_JOB_STATE</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">19</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{1CC295E5-7AF6-4403-9963-854FF1FF8C9C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{2FFE5FE5-27ED-4785-A438-19CBFDF15B4E}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -329,10 +330,27 @@
                 <SSIS:Property SSIS:Name="Name">STAGE_INCREMENTAL_SQL_AGENT_JOB_HISTORY</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">18</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{FCC61AA6-ED12-4113-B98E-788E5BD8D179}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C2EC7932-2A79-4488-951F-87B6DC1B688C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LOAD_INCREMENTAL_SQL_AGENT_JOB_HISTORY.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{93E3507C-8AD8-4439-85FA-23F5A4C2BB13}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_INCREMENTAL_SQL_AGENT_JOB_HISTORY</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">4</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{96B9FBA6-715A-4DEA-804C-FB67374B7A3D}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
