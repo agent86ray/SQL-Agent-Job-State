@@ -69,7 +69,7 @@
     <Build Include="Stored Procedures\RETRIEVE_STATE.sql" />
     <Build Include="Stored Procedures\CREATE_STATE.sql" />
     <Build Include="Stored Procedures\GET_STATE.sql" />
-    <Build Include="Stored Procedures\UPDATE_STATE_VALUE.sql" />
+    <Build Include="Stored Procedures\UPDATE_STATE_INT_VALUE.sql" />
     <Build Include="Stored Procedures\GET_END_JOB_INSTANCE_ID.sql" />
   </ItemGroup>
 </Project>
