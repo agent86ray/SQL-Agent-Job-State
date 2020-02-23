@@ -66,6 +66,7 @@
     <Build Include="Tables\JOB_HISTORY.sql" />
     <Build Include="Stored Procedures\GET_START_JOB_INSTANCE_ID.sql" />
     <Build Include="Stored Procedures\GET_ROWS_TO_LOAD_FROM_SYSJOBS.sql" />
+    <Build Include="Stored Procedures\GET_ROWS_TO_LOAD_FROM_STAGING.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\CREATE_STATE_SAMPLES.sql" />
