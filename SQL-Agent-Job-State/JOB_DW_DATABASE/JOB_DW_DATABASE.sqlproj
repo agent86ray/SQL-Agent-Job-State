@@ -59,9 +59,12 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Scripts" />
+    <Folder Include="Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\JOB_HISTORY_STAGING.sql" />
+    <Build Include="Tables\JOB_HISTORY.sql" />
+    <Build Include="Stored Procedures\GET_START_JOB_INSTANCE_ID.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\CREATE_STATE_SAMPLES.sql" />
