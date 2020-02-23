@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="INITIALIZE_JOB_STATE"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{2FFE5FE5-27ED-4785-A438-19CBFDF15B4E}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{792CEC06-6301-496F-B4C3-8B6A86059CAF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -235,46 +235,46 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="210.5,42"
+          Size="220,41.6"
           Id="Package\Get Incremental Instance Id Range\GET END JOB INSTANCE ID"
           TopLeft="34.5,81" />
         <NodeLayout
-          Size="222,42"
+          Size="233.6,41.6"
           Id="Package\Get Incremental Instance Id Range\GET START JOB INSTANCE ID"
           TopLeft="29,13" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="278,177"
-          Size="278,220"
+          PanelSize="278.4,176.8"
+          Size="278.4,220"
           Id="Package\Get Incremental Instance Id Range"
           TopLeft="50.75,104.25" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\INITIALIZE STATE"
           TopLeft="101,33.25" />
         <NodeLayout
-          Size="188,42"
+          Size="195.2,41.6"
           Id="Package\UPDATE STATE\END JOB INSTANCE ID"
           TopLeft="26.9285714285714,91.4285714285714" />
         <NodeLayout
-          Size="199,42"
+          Size="204.8,41.6"
           Id="Package\UPDATE STATE\START JOB INSTANCE ID"
           TopLeft="17.6428571428572,16.0714285714286" />
         <EdgeLayout
           Id="Package\UPDATE STATE.PrecedenceConstraints[Constraint]"
-          TopLeft="119.035714285714,58.0714285714286">
+          TopLeft="122.285714285714,57.6714285714286">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.3571428571429"
+              EndConnector="0,33.7571428571428"
               Start="0,0"
-              End="0,25.8571428571429">
+              End="0,26.2571428571428">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.8571428571429" />
+                    End="0,26.2571428571428" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -286,24 +286,24 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="226.5,190"
-          Size="226.5,233"
+          PanelSize="233.6,190.4"
+          Size="233.6,233.6"
           Id="Package\UPDATE STATE"
           TopLeft="373.571428571429,97.8571428571428" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="186.875,75.25">
+          TopLeft="187.075,74.85">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29"
+              EndConnector="0,29.4"
               Start="0,0"
-              End="0,21.5">
+              End="0,21.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="0,21.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -314,18 +314,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="328.75,214.303571428571">
+          TopLeft="329.15,214.453571428571">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="44.8214285714285,0"
+              EndConnector="44.421428571429,0"
               Start="0,0"
-              End="37.3214285714285,0">
+              End="36.921428571429,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="37.3214285714285,0" />
+                    End="36.921428571429,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
