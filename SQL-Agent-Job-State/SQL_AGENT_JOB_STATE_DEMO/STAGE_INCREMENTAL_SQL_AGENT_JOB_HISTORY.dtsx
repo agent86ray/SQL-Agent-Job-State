@@ -11,11 +11,20 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="STAGE_INCREMENTAL_SQL_AGENT_JOB_HISTORY"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{FCC61AA6-ED12-4113-B98E-788E5BD8D179}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{EA65424F-1F0D-47E8-BBAC-82F6BBAAC30D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{55D326CD-50D7-419E-A0F6-955CF93ADCB3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="END_JOB_INSTANCE_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">100</DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{CA5D04BC-4676-4505-97AF-B759FE93440A}"
@@ -25,8 +34,47 @@
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6D3EB404-FFD6-4EB4-89B0-DC81514CD59C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="START_JOB_INSTANCE_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get Instance Id Load Range from State"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F6077B0F-C877-4671-BD9B-F6BF3BA45DD2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Instance Id Load Range from State"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2642642C-D30C-4038-8896-DAC8161A4528}"
+          SQLTask:SqlStatementSource="DECLARE @CUSTOM_STATE&#x9;&#x9;NVARCHAR(4000);&#xA;&#xA;EXEC [dbo].[GET_STATE]&#xA;&#x9;@P_STATE_ID&#x9;= ?&#xA;,&#x9;@P_CUSTOM_STATE = @CUSTOM_STATE OUTPUT;&#xA;&#xA;SELECT &#xA;&#x9;JSON_VALUE(@CUSTOM_STATE, '$.start_job_instance_id') AS START_JOB_INSTANCE_ID &#xA;,&#x9;JSON_VALUE(@CUSTOM_STATE, '$.end_job_instance_id') AS END_JOB_INSTANCE_ID&#xA;;&#xA;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::START_JOB_INSTANCE_ID" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="1"
+            SQLTask:DtsVariableName="User::END_JOB_INSTANCE_ID" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::JOB_STATE_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\JOB_HISTORY_STAGING INCREMENTAL LOAD"
       DTS:CreationName="Microsoft.Pipeline"
@@ -83,7 +131,8 @@
 ,	[operator_id_paged]
 ,	[retries_attempted]
 ,	[server]
-FROM [dbo].[sysjobhistory]</property>
+FROM [dbo].[sysjobhistory]
+WHERE [instance_id] BETWEEN ? AND ?</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -104,7 +153,7 @@ FROM [dbo].[sysjobhistory]</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"0:Input",{6D3EB404-FFD6-4EB4-89B0-DC81514CD59C};"1:Input",{55D326CD-50D7-419E-A0F6-955CF93ADCB3};</property>
               </properties>
               <connections>
                 <connection
@@ -783,6 +832,14 @@ FROM [dbo].[sysjobhistory]</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\JOB_HISTORY_STAGING INCREMENTAL LOAD" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C3BBCFEA-8CE7-4129-A32A-83C0BD382FA5}"
+      DTS:From="Package\Get Instance Id Load Range from State"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TRUNCATE JOB_HISTORY_STAGING" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -795,7 +852,7 @@ FROM [dbo].[sysjobhistory]</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="299,42"
           Id="Package\JOB_HISTORY_STAGING INCREMENTAL LOAD"
@@ -809,7 +866,7 @@ FROM [dbo].[sysjobhistory]</property>
           TopLeft="227.5,147.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,27"
               Start="0,0"
               End="0,19.5">
@@ -841,6 +898,32 @@ FROM [dbo].[sysjobhistory]</property>
             </mssge:FontInfo>
           </AnnotationLayout.FontInfo>
         </AnnotationLayout>
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Get Instance Id Load Range from State"
+          TopLeft="98.25,13" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="229.625,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,50.25"
+              Start="0,0"
+              End="0,42.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
