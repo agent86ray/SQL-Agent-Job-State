@@ -7,12 +7,13 @@
   DTS:CreatorName="DESKTOP-CH7B7GJ\raymo"
   DTS:DTSID="{93E3507C-8AD8-4439-85FA-23F5A4C2BB13}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_INCREMENTAL_SQL_AGENT_JOB_HISTORY"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{96B9FBA6-715A-4DEA-804C-FB67374B7A3D}">
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{40E3868C-D27E-4268-8775-B9DDDF5B0B5C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -755,7 +756,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING">
+    design-time-name="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -768,7 +769,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY">
+    design-time-name="Package\LOAD JOB HISTORY FROM STAGING\JOB HISTORY STAGING">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
