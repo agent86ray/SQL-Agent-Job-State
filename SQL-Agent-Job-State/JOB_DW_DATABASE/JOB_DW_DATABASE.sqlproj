@@ -67,6 +67,7 @@
     <Build Include="Stored Procedures\GET_START_JOB_INSTANCE_ID.sql" />
     <Build Include="Stored Procedures\GET_ROWS_TO_LOAD_FROM_SYSJOBS.sql" />
     <Build Include="Stored Procedures\GET_ROWS_TO_LOAD_FROM_STAGING.sql" />
+    <Build Include="Stored Procedures\PURGE_SQL_AGENT_HISTORY.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\CREATE_STATE_SAMPLES.sql" />
