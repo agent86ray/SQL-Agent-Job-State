@@ -15,4 +15,16 @@ Execute scripts in SQL-Agent-Job-State\JOB_DW_DATABASE\Scripts folder:
 - CREATE_JOB_DW_DATABASE_OBJECTS.sql
 
 
+Visual Studio solution
+======================
+- SQL-Agent-Job-State\SQL-Agent-Job-State.sln
+
+The solution has the following projects:
+- JOB_CONTROL_DATABASE is a SQL Server database project
+- JOB_DW is a SQL Server database project
+- SQL_AGENT_JOB_STATE_DEMO is an SSIS project that has the sample SSIS package
+
+
+
+
 
