@@ -1,0 +1,18 @@
+DEMO CODE SETUP
+
+
+JOB_CONTROL database
+====================
+Execute scripts in SQL-Agent-Job-State\JOB_CONTROL_DATABASE\Scripts folder:
+- CREATE_JOB_CONTROL_DATABASE.sql
+- CREATE_JOB_CONTROL_DATABASE_OBJECTS.sql
+
+
+JOB_DW database
+===============
+Execute scripts in SQL-Agent-Job-State\JOB_DW_DATABASE\Scripts folder:
+- CREATE_JOB_DW_DATABASE.sql
+- CREATE_JOB_DW_DATABASE_OBJECTS.sql
+
+
+
